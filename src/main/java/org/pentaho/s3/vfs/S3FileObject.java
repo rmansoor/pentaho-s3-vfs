@@ -43,15 +43,12 @@ import org.jets3t.service.model.S3Object;
 public class S3FileObject extends AbstractFileObject {
 
   public static final String DELIMITER = "/";
-
-  //  private S3Service service = null;
   private S3Bucket bucket = null;
   private S3FileSystem fileSystem = null;
 
   protected S3FileObject( final AbstractFileName name, final S3FileSystem fileSystem ) throws FileSystemException {
     super( name, fileSystem );
     this.fileSystem = fileSystem;
-    //    service = fileSystem.getS3Service();
   }
 
   protected String getS3BucketName() {
@@ -97,12 +94,6 @@ public class S3FileObject extends AbstractFileObject {
         return null;
       }
       String name = getBucketRelativeS3Path();
-      //      S3Object[] children = s3ChildrenMap.get(getS3BucketName());
-      //      for (S3Object child : children) {
-      //        if (child.getKey().equals(name)) {
-      //          return child;
-      //        }
-      //      }
 
       if ( !name.equals( "" ) ) {
         try {
@@ -262,8 +253,6 @@ public class S3FileObject extends AbstractFileObject {
 
       ( (S3FileObject) getParent() ).folders.add( getName().getBaseName() );
       s3ChildrenMap.remove( getS3BucketName() );
-
-      // throw new FileSystemException("vfs.provider/create-folder-not-supported.error");
     }
   }
 

@@ -29,12 +29,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
-public class S3FileProvider extends AbstractOriginatingFileProvider {
+public class S3NFileProvider extends AbstractOriginatingFileProvider {
 
   /**
    * The scheme this provider was designed to support
    */
-  public static final String SCHEME = "s3";
+  public static final String SCHEME = "s3n";
 
   /**
    * User Information.
@@ -68,9 +68,9 @@ public class S3FileProvider extends AbstractOriginatingFileProvider {
         Capability.RANDOM_ACCESS_READ
       } ) );
 
-  public S3FileProvider() {
+  public S3NFileProvider() {
     super();
-    setFileNameParser( S3FileNameParser.getInstance() );
+    setFileNameParser( S3NFileNameParser.getInstance() );
   }
 
   protected FileSystem doCreateFileSystem( final FileName name, final FileSystemOptions fileSystemOptions )
